@@ -1,22 +1,22 @@
-import java.util.Stack;
+import java.util.*;
 
 public class PalindromeCheckerApp {
 
     public static void main(String[] args) {
 
-        String input = "noon";
+        String input = "refer";
 
-        Stack<Character> stack = new Stack<>();
+        Deque<Character> deque = new ArrayDeque<>();
 
         for (char c : input.toCharArray()) {
-            stack.push(c);
+            deque.add(c);
         }
 
         boolean isPalindrome = true;
 
-        for (char c : input.toCharArray()) {
+        while (deque.size() > 1) {
 
-            if (c != stack.pop()) {
+            if (!deque.removeFirst().equals(deque.removeLast())) {
                 isPalindrome = false;
                 break;
             }
